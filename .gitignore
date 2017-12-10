@@ -1,0 +1,9 @@
+# ignores
+bin
+bin/*
+obj
+obj/*
+*.cbp
+*.depend
+*.layout
+*.swp
