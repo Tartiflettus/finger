@@ -24,4 +24,6 @@ int fingerprint(int p, std::string fn)
 
 
     file.close();
-*/}
+*/
+    return 0;
+}

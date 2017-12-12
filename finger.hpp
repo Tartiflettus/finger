@@ -1,6 +1,8 @@
 #ifndef FINGER_HPP_INCLUDED
 #define FINGER_HPP_INCLUDED
 
+#include <string>
+
 const int ECHEC = -1;
 
 /*
