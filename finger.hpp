@@ -3,12 +3,12 @@
 
 #include <string>
 
-const int ECHEC = -1;
+constexpr int ECHEC = -1;
 
 /*
 Renvoie le fingerprint de fn, ou ECHEC si échec
 */
-int fingerprint(int p, std::string fn);
+int fingerprint(int p, const std::string& fn);
 
 
 #endif // FINGER_HPP_INCLUDED

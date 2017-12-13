@@ -1,6 +1,9 @@
 #include <iostream>
 #include <cmath>
+#include <cassert>
 #include "util.hpp"
+#include "finger.hpp"
+
 
 using namespace std;
 
@@ -26,6 +29,30 @@ int main()
         p = nextprime();
         cout<< p<< " ; pseudo-premier ? "<< pseudoprime(p)<< endl;
     }
+
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
+    /**
+    Code de finger de fichier
+    */
+
+    /*int f = fingerprint(5407, "test1");
+    if(f == ECHEC)
+    {
+        cerr<< "Impossible de lire le fichier"<< endl;
+        return -1;
+    }
+    cout<< endl<< "fingerprint(5407, \"test1\"): "<< f<< endl;*/
+
+    int f = fingerprint(17, "monfichier.txt");
+    if(f == ECHEC)
+    {
+        cerr<< "Impossible de lire le fichier"<< endl;
+        return -1;
+    }
+    cout<< endl<< "fingerprint(17, \"monfichier.txt\"): "<< f<< endl;
+    assert(f == 2);
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
     return 0;
 }

@@ -1,12 +1,13 @@
 #include "finger.hpp"
+#include "util.hpp"
 #include <fstream>
 
 
 //TODO
-int fingerprint(int p, std::string fn)
-{/*
+int fingerprint(int p, const std::string& fn)
+{
     std::ifstream file;
-    file.open(fn);
+    file.open(fn, std::ios::binary);
     if(!file.is_open())
     {
         return ECHEC;
@@ -14,16 +15,18 @@ int fingerprint(int p, std::string fn)
 
 
     int somme = 0;
-    int puis = 0; //puissance de 256 jusque n, le nombre de blocs de taille 32 bits du fichier
-    char buffer[4]; //32 bits
+    int puismodp = 1; //puissance de 256 jusque n, le nombre d'octets du fichier
+    unsigned char buffer;
     while(file.good()) //lire tout le fichier
     {
-        file.read(buffer, 4);
-        somme +=
+        file.read((char*)(&buffer), 1);
+        buffer = ((buffer % p) * puismodp) % p;
+        somme = (somme + buffer) % p; // somme et buffer sont déjà en modulo p
+        puismodp = (puismodp << 8) % p; //* 256^n mod p
     }
 
 
     file.close();
-*/
-    return 0;
+
+    return somme;
 }

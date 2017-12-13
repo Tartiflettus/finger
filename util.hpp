@@ -31,5 +31,11 @@ Renvoie un nombre entier entre 2 et 2^23 - 1
 int nextprime();
 
 
+/*
+Convertit un buffer de 32 bits en un entier
+*/
+int buffer32toint(const char buffer[4]);
+
+
 
 #endif // DEF_UTIL_HPP
