@@ -1,1 +1,4 @@
-bonjour
+﻿Ceci est un fichier ma foi fort peu intéressant dans le contexte de ce projet.
+Enfin, par peu intéressant, j'entends que son contenu n'est pas intéressant.
+Sacrebleu, je manque de précision. J'insinue que lire ce fichier ne porte aucun intérêt, si ce n'est un léger apport ludique.
+Bref, bonne journée au lecteur suffisamment attentionné pour me lire jusqu'au bout!

@@ -6,19 +6,18 @@
 #include <iterator>
 
 
-/*int fingerprint(int p, const std::string& fn)
+int fingerprint(int p, const std::string& fn)
 {
     std::ifstream file;
     file.open(fn, std::ios::binary);
-    if(!file.is_open())
-    {
-        return ECHEC;
-    }
+    if(!file.is_open()) return ECHEC;
+
     file.seekg(0, file.end);
     const int taille = file.tellg();
     file.seekg(0, file.beg);
 
     std::vector<char> buffer;
+    buffer.reserve(taille);
     std::copy(std::istream_iterator<char>(file),
               std::istream_iterator<char>(),
               std::back_insert_iterator< std::vector<char> >(buffer));
@@ -35,12 +34,11 @@
     }
 
     file.close();
-
     return somme;
-}*/
+}
 
 
-int fingerprint(int p, const std::string& fn)
+/*int fingerprint(int p, const std::string& fn)
 {
     std::ifstream file;
     file.open(fn, std::ios::binary);
@@ -67,7 +65,7 @@ int fingerprint(int p, const std::string& fn)
 
         buffer = ((buffer % p) * puismodp) % p;
         somme = (somme + buffer) % p; // somme et buffer sont déjà en modulo p
-        puismodp = (puismodp << 8) % p; //* 256^n mod p
+        puismodp = (puismodp << 8) % p; // * 256^n mod p
         file.seekg(-2, file.cur); //reculer de 2
     }
 
@@ -75,4 +73,4 @@ int fingerprint(int p, const std::string& fn)
     file.close();
 
     return somme;
-}
+}*/

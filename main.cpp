@@ -12,7 +12,21 @@ Q5
 */
 int main_plusieurs_fichiers()
 {
-    return -1;
+    constexpr int nbtests = 100'000;
+    int nbdifferents = 0;
+    for(int i=0; i < nbtests; i++)
+    {
+        const int p = nextprime();
+        const int f1 = fingerprint(p, "monfichier.txt");
+        const int f2 = fingerprint(p, "monautrefichier.txt");
+        if(f1 == ECHEC || f2 == ECHEC) return -1;
+        if(f1 != f2) nbdifferents++;
+    }
+
+    cout<< "Ratio différents / nombre de tests: "<< nbdifferents<< "/"<< nbtests<<
+    " = "<< float(nbdifferents)/float(nbtests)<< endl;
+
+    return 0;
 }
 
 
