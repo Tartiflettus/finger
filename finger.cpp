@@ -31,7 +31,7 @@
         int byte = *((unsigned char*)(void*)&buffer[i]);
         byte = ((byte % p) * puismodp) % p;
         somme = (somme + byte) % p; // somme et buffer sont déjà en modulo p
-        puismodp = (puismodp << 8) % p; //* 256^n mod p
+        puismodp = (puismodp << 8) % p; // * 256^n mod p
     }
 
     file.close();

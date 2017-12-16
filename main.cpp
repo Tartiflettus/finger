@@ -43,14 +43,6 @@ int main()
         return -1;
     }
     cout<< endl<< "fingerprint(5407, \"test1\"): "<< f<< endl;
-
-    /*int f = fingerprint(17, "monfichier.txt");
-    if(f == ECHEC)
-    {
-        cerr<< "Impossible de lire le fichier"<< endl;
-        return -1;
-    }
-    cout<< endl<< "fingerprint(17, \"monfichier.txt\"): "<< f<< endl;*/
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
     return 0;
