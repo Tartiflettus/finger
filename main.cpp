@@ -7,7 +7,17 @@
 
 using namespace std;
 
-int main()
+/**
+Q5
+*/
+int main_plusieurs_fichiers()
+{
+    return -1;
+}
+
+
+
+int main_divers()
 {
     const int x = 9, y = 118;
     int p = 17;
@@ -46,4 +56,10 @@ int main()
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
     return 0;
+}
+
+
+int main()
+{
+    return main_divers();
 }
