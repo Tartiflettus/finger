@@ -13,7 +13,7 @@ Q7
 */
 int main_test2()
 {
-    constexpr int nbtests = 100;
+    constexpr int nbtests = 500;
     int nb0 = 0;
     for(int i=0; i < nbtests; i++)
     {
@@ -35,7 +35,7 @@ Q6
 */
 int main_test3_4()
 {
-    constexpr int nbtests = 100;
+    constexpr int nbtests = 1'000;
     int nbdifferents = 0;
     for(int i=0; i < nbtests; i++)
     {
