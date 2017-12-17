@@ -13,7 +13,7 @@ Q7
 */
 int main_test2()
 {
-    constexpr int nbtests = 500;
+    constexpr int nbtests = 250;
     int nb0 = 0;
     for(int i=0; i < nbtests; i++)
     {
@@ -58,7 +58,7 @@ Q5
 */
 int main_plusieurs_fichiers()
 {
-    constexpr int nbtests = 10'000;
+    constexpr int nbtests = 100'000;
     int nbdifferents = 0;
     for(int i=0; i < nbtests; i++)
     {
