@@ -42,15 +42,15 @@ int fingerprint(int p, const std::vector<char>& bytes)
 
 int fingerprint(int p, const std::string& fn)
 {
-    std::ifstream file(fn, std::ios::binary);
-    if(!file.is_open()) return ECHEC;
-
     //maintenir une table des fichiers lus
     static std::map<std::string, std::vector<char>> filemap;
     if(filemap.count(fn) > 0)
     {
         return fingerprint(p, filemap.at(fn)); //ne pas relire le fichier
     }
+
+    std::ifstream file(fn, std::ios::binary);
+    if(!file.is_open()) return ECHEC;
     std::vector<char> bytes;
     loadBytes(file, bytes); //lire le fichier pour la première fois
 
