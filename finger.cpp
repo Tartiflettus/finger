@@ -80,7 +80,7 @@ int fingerprintpos(int p, const std::vector<char>& F, int k, int pos)
 
 bool containsfingerprints(int p, const std::vector<char>& F, int k, int other_fingerprint)
 {
-    /*const int puis256k = puissance(256, k, p);
+    const int puis256k = puissance(256, k-1, p);
     int finger = fingerprint(p, F, k);
     if(finger == other_fingerprint) return true;
 
@@ -89,21 +89,21 @@ bool containsfingerprints(int p, const std::vector<char>& F, int k, int other_fi
         const int byte = chartounsigned(F[i]); //assimiler byte comme la représentation non signée de byte[i]
         finger  = ( ( ( finger - (byte%p) )%p) / (256%p) ) % p;
         const int byte_end = chartounsigned(F[i+k]);
-        finger = ( finger + ((byte_end%p) * puis256k)%p ) % p;
+        finger = ( finger + ( ((byte_end%p) * puis256k)%p ) ) % p;
 
-        std::cout<< "finger : "<< finger<< "\nother: "<< other_fingerprint<< std::endl;
+        //std::cout<< "finger : "<< finger<< "\nother: "<< other_fingerprint<< std::endl;
 
         if(finger == other_fingerprint) return true;
     }
 
-    return false;*/
+    return false;
 
-    for(unsigned i = 0; i < F.size()-k; i++)
+    /*for(unsigned i = 0; i < F.size()-k; i++)
     {
         const int finger = fingerprintpos(p, F, k, i);
         if(finger == other_fingerprint) return true;
     }
-    return false;
+    return false;*/
 }
 
 
@@ -143,39 +143,3 @@ int fingerprint(int p, const std::string& fn)
 }
 
 
-/*int fingerprint(int p, const std::string& fn)
-{
-    std::ifstream file;
-    file.open(fn, std::ios::binary);
-    if(!file.is_open())
-    {
-        return ECHEC;
-    }
-    file.seekg(-1, file.end); //lire depuis la fin
-    if(!file.good()) return ECHEC;
-
-
-    int somme = 0;
-    int puismodp = 1; //puissance de 256 jusque n, le nombre d'octets du fichier
-    int byte;
-    while(file.tellg() >= 0) //lire tout le fichier
-    {
-        char c = file.get();
-        byte = *((unsigned char*)(void*)&c);
-        if(file.bad())
-        {
-            return ECHEC;
-        }
-        //std::cout<< buffer;
-
-        byte = ((byte % p) * puismodp) % p;
-        somme = (somme + byte) % p; // somme et buffer sont déjà en modulo p
-        puismodp = (puismodp << 8) % p; // * 256^n mod p
-        file.seekg(-2, file.cur); //reculer de 2
-    }
-
-
-    file.close();
-
-    return somme;
-}*/
