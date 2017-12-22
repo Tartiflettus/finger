@@ -61,11 +61,10 @@ int nextprime()
 
 
 
-int buffer32toint(const char buffer[4])
+int chartounsigned(char c)
 {
-    const void* ptrvoid = static_cast<const void*>(buffer);
-    const uint32_t* ptrunint32 = static_cast<const uint32_t*>(ptrvoid);
-    return *ptrunint32;
+    return *((unsigned char*)(void*)&c);
 }
+
 
 

@@ -14,7 +14,7 @@ int main_q10()
     const int petitf = fingerprint(premier, "petitmonfichier.txt");
     if(petitf == ECHEC) return -1;
 
-    if(containsfingerprints(premier, "monfichier.txt", 22, petitf)){
+    if(containsfingerprints(premier, "monfichier.txt", 8, petitf)){
         std::cout<< "Le petit fichier est contenu dans le grand"<< std::endl;
     }
     else
@@ -31,7 +31,7 @@ Q7
 */
 int main_test2()
 {
-    constexpr int nbtests = 1;
+    constexpr int nbtests = 250;
     int nb0 = 0;
     for(int i=0; i < nbtests; i++)
     {

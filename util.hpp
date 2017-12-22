@@ -32,9 +32,9 @@ int nextprime();
 
 
 /*
-Convertit un buffer de 32 bits en un entier
+Convertit un char en char non signé
 */
-int buffer32toint(const char buffer[4]);
+int chartounsigned(char c);
 
 
 
