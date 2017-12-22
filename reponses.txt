@@ -1,0 +1,15 @@
+Q6)
+
+Les fingerprints de test3 et test4 sont égaux dans environ 50% des cas.
+
+
+Q7)
+
+Le calcul du fingerprint d'un fichier revient à consiédérer ce fichier comme un grand nombre (écrit en base 256).
+Obtenir un fingerprint égal à 0 qu'importe le premier p choisi inférieur à 2^23 revient à dire que ce nombre est divisible par tout les premiers inférieurs à 2^23.
+
+Le plus petit nombre possible vérifiant cette propriété est le produit des premiers inférieurs à 2^23.
+Le fichier test2 a donc été construit de cette manière.
+
+
+
