@@ -2,6 +2,7 @@
 #include <random>
 #include <functional> //bind
 #include <chrono> //clock for random seed
+#include <cassert>
 
 
 
@@ -71,6 +72,8 @@ int chartounsigned(char c)
 int pmod(int nb, int m)
 {
     int res = nb % m;
-    return res >= 0 ? res : res + m;
+    res  = res >= 0 ? res : res + m;
+    assert(res >= 0);
+    return res;
 }
 

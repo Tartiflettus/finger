@@ -111,7 +111,7 @@ bool containsfingerprints(int p, const std::string& fichier, int k, int other_fi
 {
     std::ifstream f(fichier, std::ios::binary);
     if(!f.is_open())
-        return false;
+        throw fingerexception();
 
     std::vector<char> bytes;
     loadBytes(f, bytes); //lire le fichier pour la première fois
