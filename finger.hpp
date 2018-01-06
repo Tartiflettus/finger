@@ -3,8 +3,9 @@
 
 #include <string>
 #include <vector>
+#include "fingerexception.hpp"
 
-constexpr int ECHEC = -1;
+//constexpr int ECHEC = -1;
 
 /*
 Renvoie le fingerprint de fn, ou ECHEC si échec

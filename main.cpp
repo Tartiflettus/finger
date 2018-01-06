@@ -12,7 +12,6 @@ int main_q10()
 {
     const int premier = nextprime();
     const int petitf = fingerprint(premier, "petitmonfichier.txt");
-    if(petitf == ECHEC) return -1;
 
     if(containsfingerprints(premier, "monfichier.txt", 8, petitf)){
         std::cout<< "Le petit fichier est contenu dans le grand"<< std::endl;
@@ -37,7 +36,6 @@ int main_test2()
     {
         const int p = nextprime();
         const int f = fingerprint(p, "test2");
-        if(f == ECHEC) return -1;
         if(f == 0) nb0++;
     }
 
@@ -60,7 +58,6 @@ int main_test3_4()
         const int p = nextprime();
         const int f1 = fingerprint(p, "test3.xpm");
         const int f2 = fingerprint(p, "test4");
-        if(f1 == ECHEC || f2 == ECHEC) return -1;
         if(f1 != f2) nbdifferents++;
     }
 
@@ -83,7 +80,6 @@ int main_plusieurs_fichiers()
         const int p = nextprime();
         const int f1 = fingerprint(p, "monfichier.txt");
         const int f2 = fingerprint(p, "monautrefichier.txt");
-        if(f1 == ECHEC || f2 == ECHEC) return -1;
         if(f1 != f2) nbdifferents++;
     }
 
@@ -125,11 +121,6 @@ int main_divers()
     */
 
     int f = fingerprint(5407, "test1");
-    if(f == ECHEC)
-    {
-        cerr<< "Impossible de lire le fichier"<< endl;
-        return -1;
-    }
     cout<< endl<< "fingerprint(5407, \"test1\"): "<< f<< endl;
     ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -139,5 +130,15 @@ int main_divers()
 
 int main()
 {
-    return main_q10();
+    try
+    {
+        return main_q10();
+    }
+    catch(const fingerexception& e)
+    {
+        std::cerr<< "fingerexception : "<< e.what()<< std::endl;
+        return -1;
+    }
+
+    return -1;
 }

@@ -43,7 +43,7 @@ int fingerprint(int p, const std::vector<char>& bytes)
 
 int fingerprint(int p, const std::vector<char>& F, int k)
 {
-    if(unsigned(k) > F.size()) return ECHEC;
+    if(unsigned(k) > F.size()) throw fingerexception();
 
     int somme = 0;
     int puismodp = 1;
@@ -61,7 +61,7 @@ int fingerprint(int p, const std::vector<char>& F, int k)
 
 int fingerprintpos(int p, const std::vector<char>& F, int k, int pos)
 {
-    if(unsigned(pos+k) > F.size()) return ECHEC;
+    if(unsigned(pos+k) > F.size()) throw fingerexception();
 
     int somme = 0;
     int puismodp = 1;
@@ -87,7 +87,7 @@ bool containsfingerprints(int p, const std::vector<char>& F, int k, int other_fi
     for(unsigned i=0; i < F.size()-k; i++)
     {
         const int byte = chartounsigned(F[i]); //assimiler byte comme la représentation non signée de byte[i]
-        finger  = ( ( ( finger - (byte%p) )%p) / (256%p) ) % p;
+        finger  = ( pmod(finger - (byte%p), p) / (256%p) ) % p;
         const int byte_end = chartounsigned(F[i+k]);
         finger = ( finger + ( ((byte_end%p) * puis256k)%p ) ) % p;
 
@@ -132,12 +132,12 @@ int fingerprint(int p, const std::string& fn)
     }
 
     std::ifstream file(fn, std::ios::binary);
-    if(!file.is_open()) return ECHEC;
+    if(!file.is_open()) throw fingerexception();
     std::vector<char> bytes;
     loadBytes(file, bytes); //lire le fichier pour la première fois
 
     const int somme = fingerprint(p, bytes);
-    if(somme != ECHEC) filemap[fn] = bytes; //enregistrer le contenu du fichier dans la table
+    filemap[fn] = bytes; //enregistrer le contenu du fichier dans la table
 
     return somme;
 }

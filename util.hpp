@@ -37,5 +37,11 @@ Convertit un char en char non signé
 int chartounsigned(char c);
 
 
+/*
+Effectue le modulo positif de nb par m
+*/
+int pmod(int nb, int m);
+
+
 
 #endif // DEF_UTIL_HPP

@@ -68,3 +68,9 @@ int chartounsigned(char c)
 
 
 
+int pmod(int nb, int m)
+{
+    int res = nb % m;
+    return res >= 0 ? res : res + m;
+}
+
